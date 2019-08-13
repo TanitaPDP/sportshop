@@ -14,6 +14,7 @@ gulp.task('server', function() {
     });
 });
 
+// Add style from sass or scss to style.min.css, clean code, compress code
 gulp.task('styles', function() {
     return gulp.src("src/sass/**/*.+(scss|sass)")
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -27,9 +28,11 @@ gulp.task('styles', function() {
         .pipe(browserSync.stream());
 });
 
+// Watch for changes in sass or scss and html files made - browser will reload
 gulp.task('watch', function() {
     gulp.watch("src/sass/**/*.+(scss|sass)", gulp.parallel("styles"));
     gulp.watch("src/*.html").on("change", browserSync.reload);
 });
 
+// Include all tasks in one default
 gulp.task('default', gulp.parallel('watch', 'server', 'styles'));
