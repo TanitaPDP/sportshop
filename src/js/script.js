@@ -73,6 +73,53 @@ $(document).ready(function(){
           $('.overlay, #order').fadeIn('slow');
         })
       });
+
+      // Валидация форм. Скрипт jquery.validate.min.js
+      // $('#consultation-form').validate(); 
+      // $('#order form').validate(); 
+      // $('#consultation form').validate({
+      //   rules: {
+      //     name: "required",
+      //     phone: "required",
+      //     email: {
+      //       required: true,
+      //       email: true
+      //     }
+      //   },
+      //   messages: {
+      //     name: "Введите имя",
+      //     phone: "Введите номер телефона",
+      //     email: {
+      //       required: "Введите ваш email",
+      //       email: "Некорректный email адрес"
+      //     }
+      //   }      
+      // }); 
+      
+// Оптимизированная функция валидации форм
+      function valideForms(form) {
+        $(form).validate({
+          rules: {
+            name: "required",
+            phone: "required",
+            email: {
+              required: true,
+              email: true
+            }
+          },
+          messages: {
+            name: "Введите имя",
+            phone: "Введите номер телефона",
+            email: {
+              required: "Введите ваш email",
+              email: "Некорректный email адрес"
+            }
+          }      
+        }); 
+      };
+      valideForms('#consultation-form');
+      valideForms('#consultation form');
+      valideForms('#order form');
   });
 
   
