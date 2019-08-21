@@ -123,6 +123,37 @@ $(document).ready(function(){
 
     // Маска ввода номера телефона
     $('input[name=phone]').mask("+7 (999) 999-99-99");
-  });
 
-  
+    // Отправка формы
+    $('form').submit(function(e) {
+      e.preventDefault();  /* Отменяем стандартное поведение броузера */
+      $.ajax({
+        type: "POST",                 /* Метод отправки */
+        url: "mailer/smart.php",      /* Адрес скрипта */
+        data: $(this).serialize()     
+      }).done(function() {
+        $(this).find("input").val("");    /* Найти все поля input и поставить им значение пусто */
+        $('#consultation, #order').fadeOut(); /* Прячем окна с формами */
+        $('.overlay, #thanks').fadeIn('slow'); /* Показываем слой затемнения и модальное окно с благодарностью */
+        $('form').trigger('reset');       /* Во всех формах сделать сброс значений */
+      });
+      return false;
+    });
+
+    // Кнопка наверх появляется после прокрутки 1600 пикселей
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 1600) {
+        $('.pageup').fadeIn();    /* Если прокрутили 1600 пх - стрелка появляется */
+      } else {
+        $('.pageup').fadeOut();   /* Если меньше 1600 - стрелка исчезает */
+      }
+    });
+
+    // Smooth scroll
+      $("a[href^='#']").click(function(){
+              const _href = $(this).attr("href");   /* Получаем аттрибут href из ссылки, к-й начинается с # */
+              $("html, body").animate({scrollTop: $(_href).offset().top+"px"});   /* Анимация от jquery */
+              return false;
+      }); 
+
+  });
