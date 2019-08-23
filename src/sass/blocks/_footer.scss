@@ -51,3 +51,12 @@
     }
 
 }
+@media (max-width: 575px) {
+    .footer {
+        width: 100%;
+        &__info {
+            width: 100%;
+            padding: 30px;
+        }
+    }
+}

@@ -32,3 +32,26 @@
         margin-top: 10px;
     }
 }
+@media (max-width: 575px) {
+    .feed {
+        &__item {
+            margin-top: 50px;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__text {
+            margin-left: 0;
+            margin: 0 auto;
+            padding-right: 0;
+        }
+        &__subtitle {
+            text-align: center;
+        }
+        &__count {
+            text-align: center;
+        }
+        &__img {
+            margin-bottom: 20px;
+        }
+    }
+}

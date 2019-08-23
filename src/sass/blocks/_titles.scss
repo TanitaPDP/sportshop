@@ -10,3 +10,13 @@
         text-align: left;
     }
 }
+@media (max-width: 575px) {
+    .title {
+        font-size: 28px;
+        &_left {
+            font-size: 28px;
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+}

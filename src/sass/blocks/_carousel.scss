@@ -22,3 +22,27 @@
         left: auto;
     }      
 }
+@media (max-width: 991px) {
+    .carousel {
+        padding: 50px 0;
+        &__inner {
+            width: 600px;
+        }
+    }
+    .slick-slide img {
+        width: 100%;
+    }
+}
+@media (max-width: 575px) {
+    .carousel {        
+        &__inner {
+            width: 100%;
+        }
+    }
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+    
+}

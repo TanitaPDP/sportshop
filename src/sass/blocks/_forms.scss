@@ -21,3 +21,9 @@
         margin-top: 25px;
     }
 }
+@media (max-width: 575px) {
+    .feed-form {
+        width: 100%;
+        align-items: stretch;
+    }
+}

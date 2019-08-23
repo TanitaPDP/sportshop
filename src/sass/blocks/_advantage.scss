@@ -53,3 +53,19 @@
         }
     }
 }
+@media (max-width: 991px) {}   
+@media (max-width: 767px) {}
+@media (max-width: 575px) {
+    .advantage {
+        padding: 30px 0 50px 0;
+        &__title {
+            font-size: 28px;
+        }
+        &__wrapper {
+            margin-top: 50px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
